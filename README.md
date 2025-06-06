@@ -4,42 +4,42 @@
 Meta Kaggle Insights is a data exploration project using the **Meta Kaggle dataset** to analyze the Kaggle community, including users, competitions, datasets, and notebooks. The project leverages **relational (PostgreSQL)** and **document-oriented (MongoDB)** databases to model and analyze the data, explore functional dependencies, and perform itemset mining and association rule analysis.
 
 This project is divided into three phases:
-⚙️ Phase 1: Relational Database Construction
-  Used PostgreSQL to construct a normalized schema.
+## ⚙️ Phase 1: Relational Database Construction
+  - **Used PostgreSQL to construct a normalized schema.
   
-  Loaded cleaned Kaggle data covering users, competitions, datasets, tags, submissions, teams, etc.
+  - **Loaded cleaned Kaggle data covering users, competitions, datasets, tags, submissions, teams, etc.
   
-  Maintained referential integrity using primary and foreign keys.
+  - **Maintained referential integrity using primary and foreign keys.
   
-  Created ER diagrams and relational schema models.
+  - **Created ER diagrams and relational schema models.
   
-  Cleaned data using scripts (clean_files.py, analyze_data.py).
+  - **Cleaned data using scripts (clean_files.py, analyze_data.py).
 
 🛠 Tools: Python, PostgreSQL, SQL, pandas
 
-Phase 2: Document Database with MongoDB
-  Modeled the same dataset using MongoDB, embedding nested entities like:
+## Phase 2: Document Database with MongoDB
+  - **Modeled the same dataset using MongoDB, embedding nested entities like:
   
-  Users → Organizations, Followers, Achievements
+  - **Users → Organizations, Followers, Achievements
   
-  Teams → Submissions
+  - **Teams → Submissions
   
-  Competitions & Datasets → Tags
+  - **Competitions & Datasets → Tags
   
-  Compared performance between relational and document models on complex analytical queries.
+  - **Compared performance between relational and document models on complex analytical queries.
   
-  Added indexing to speed up relational queries by over 95% in most cases.
+  - **Added indexing to speed up relational queries by over 95% in most cases.
 
-📌 Key Findings:
+## 📌 Key Findings:
 
-  PostgreSQL is better for data integrity and complex joins.
+  - **PostgreSQL is better for data integrity and complex joins.
   
-  MongoDB offers flexibility but struggles with constraints and query speed.
+ - ** MongoDB offers flexibility but struggles with constraints and query speed.
 
 🔧 Tools: MongoDB, PyMongo, SQL indexing, query tuning
 
-📈 Phase 3: Pattern Mining & Association Rules
-  Applied Apriori algorithm to perform itemset mining:
+## 📈 Phase 3: Pattern Mining & Association Rules
+  - **Applied Apriori algorithm to perform itemset mining:
   
   🏁 Competition Tags: Found that beginner competitions are highly associated with "tabular-data" (confidence = 1.0).
   
@@ -47,14 +47,14 @@ Phase 2: Document Database with MongoDB
   
   🧑‍💼 User-Organization: IIT KHARAGPUR ↔ SPARK4AI (perfect lift = 39.73).
   
-  Mined both frequent itemsets and association rules.
+  - **Mined both frequent itemsets and association rules.
   
-  Mapped high-engagement topics and user contribution patterns.
+  - **Mapped high-engagement topics and user contribution patterns.
 
 🧠 Tools: Python, pandas, set operations, custom Apriori
 
 🧹 Data Cleaning Highlights
-    Dropped invalid references, corrected data types (e.g., float → int), and filled missing values when sensible.
+   - ** Dropped invalid references, corrected data types (e.g., float → int), and filled missing values when sensible.
 
 Ensured:
 
@@ -66,14 +66,14 @@ Ensured:
 
 Final cleaned dataset had 126M+ records (only 1% data loss from raw input).
 
-⚡ Performance Insights
-  Indexed SQL queries saw:
+##⚡ Performance Insights
+  - **Indexed SQL queries saw:
   
-  98% speedup on tag-medal aggregation queries
+  - **98% speedup on tag-medal aggregation queries
   
-  96% speedup on follower-achievement lookups
+  - **96% speedup on follower-achievement lookups
   
-  Document model loading took ~215 mins vs. ~90 mins for relational load
+  - **Document model loading took ~215 mins vs. ~90 mins for relational load
   
 
 ---
